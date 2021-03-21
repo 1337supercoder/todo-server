@@ -5,7 +5,7 @@ import {
   ManyToOne,
   Index,
 } from 'typeorm';
-import { IsNotEmpty, Length } from 'class-validator';
+import { Length } from 'class-validator';
 import User from './User';
 
 @Entity()
@@ -24,7 +24,6 @@ export default class Task {
   status: boolean = false;
 
   @Index()
-  @IsNotEmpty()
   @ManyToOne(() => User, (user: User) => user.tasks)
   user: User;
 }

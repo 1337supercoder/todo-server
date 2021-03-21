@@ -6,6 +6,7 @@ import {
   OneToMany,
 } from 'typeorm';
 import { Length, IsEmail } from 'class-validator';
+import bcrypt from 'bcryptjs';
 import Task from './Task';
 
 @Entity()
@@ -28,4 +29,12 @@ export default class User {
 
   @OneToMany(() => Task, (task: Task) => task.user)
   tasks: Task[];
+
+  hashPassword() {
+    this.password = bcrypt.hashSync(this.password, 8);
+  }
+
+  checkIfUnencryptedPasswordIsValid(unencryptedPassword: string) {
+    return bcrypt.compareSync(unencryptedPassword, this.password);
+  }
 }
