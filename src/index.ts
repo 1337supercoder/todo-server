@@ -4,7 +4,10 @@ import express from 'express';
 import bodyParser from 'body-parser';
 import helmet from 'helmet';
 import cors from 'cors';
+import dotenv from 'dotenv';
 import route from './route';
+
+dotenv.config();
 
 createConnection().then(async () => {
   const app = express();

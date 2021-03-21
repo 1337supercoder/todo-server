@@ -13,14 +13,14 @@
 пакеты
 
 ```bash
-yarn todo:init
+yarn server:init
 ```
 
 ### docker & postgresql
 Далее запустим докер контейнер с базой данных
 
 ```bash
-yarn docker:postgres:init 
+yarn docker:postgres:init
 ```
 
 Если потребуется взаимодействовать с базой напрямую используйте команды

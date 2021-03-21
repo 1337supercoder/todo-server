@@ -6,7 +6,7 @@ const checkJwt = (req: Request, res: Response, next: NextFunction) => {
   let jwtPayload;
 
   try {
-    jwtPayload = <any>jwt.verify(token, 'test'); // todo вынести в env
+    jwtPayload = <any>jwt.verify(token, `${process.env.JWT_SECRET_KEY}`);
     res.locals.jwtPayload = jwtPayload;
   } catch (error) {
     res.status(401).send();

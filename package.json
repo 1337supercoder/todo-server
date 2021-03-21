@@ -21,7 +21,8 @@
     "jsonwebtoken": "8.5.1",
     "pg": "8.5.1",
     "reflect-metadata": "0.1.13",
-    "typeorm": "0.2.31"
+    "typeorm": "0.2.31",
+    "dotenv": "8.2.0"
   },
   "devDependencies": {
     "@types/express": "4.17.11",
@@ -37,17 +38,14 @@
     "typescript": "4.2.3"
   },
   "scripts": {
-    "todo:init": "nvm use && yarn",
-
+    "server:init": "nvm use && yarn",
     "docker:postgres:init": "docker-compose up -d",
     "docker:postgres:exec": "docker exec -it postgres-todo bash",
-
     "typeorm:tsc": "ts-node-dev ./node_modules/typeorm/cli.js",
     "typeorm:migration:create": "yarn typeorm:tsc migration:create -n",
     "typeorm:migration:generate": "yarn typeorm:tsc migration:generate -n",
     "typeorm:migration:run": "yarn typeorm:tsc migration:run",
     "typeorm:migration:revert": "yarn typeorm:tsc migration:revert",
-
     "start": "ts-node-dev src/index.ts",
     "lint": "eslint . --ext .ts"
   }
