@@ -6,7 +6,7 @@ import {
   OneToMany,
 } from 'typeorm';
 import { Length, IsEmail } from 'class-validator';
-import Todo from './Todo';
+import Task from './Task';
 
 @Entity()
 @Unique(['email'])
@@ -26,6 +26,6 @@ export default class User {
   @Length(4, 100)
   password: string;
 
-  @OneToMany(() => Todo, (todo: Todo) => todo.user)
-  todos: Todo[];
+  @OneToMany(() => Task, (task: Task) => task.user)
+  tasks: Task[];
 }

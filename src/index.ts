@@ -4,6 +4,7 @@ import express from 'express';
 import bodyParser from 'body-parser';
 import helmet from 'helmet';
 import cors from 'cors';
+import route from './route';
 
 createConnection().then(async () => {
   const app = express();
@@ -11,6 +12,8 @@ createConnection().then(async () => {
   app.use(cors())
     .use(helmet())
     .use(bodyParser.json());
+
+  app.use('/', route);
 
   app.listen(3000, () => {
     // eslint-disable-next-line

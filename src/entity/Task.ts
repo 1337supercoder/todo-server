@@ -9,7 +9,7 @@ import { IsNotEmpty, Length } from 'class-validator';
 import User from './User';
 
 @Entity()
-export default class Todo {
+export default class Task {
   @PrimaryGeneratedColumn()
   id: number;
 
@@ -25,6 +25,6 @@ export default class Todo {
 
   @Index()
   @IsNotEmpty()
-  @ManyToOne(() => User, (user: User) => user.todos)
+  @ManyToOne(() => User, (user: User) => user.tasks)
   user: User;
 }
